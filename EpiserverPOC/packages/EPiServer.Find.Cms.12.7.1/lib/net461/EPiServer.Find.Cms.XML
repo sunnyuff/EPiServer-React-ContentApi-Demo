@@ -1,0 +1,639 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EPiServer.Find.Cms</name>
+    </assembly>
+    <members>
+        <member name="T:EPiServer.Find.Cms.AssemblyResourceProviderRegistrationModule">
+            <summary>
+            Required for embedded resources such as views etc.
+            This enables the lookup of an embedded view.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Find.Cms.BestBets.IPropertyResolver">
+            <summary>
+            Interface for getting additional properties for IContent entities returned by the content store for Find UI.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Find.Cms.ClientExtensions.UnifiedSearchFor(EPiServer.Find.IClient,System.String)">
+            <summary>
+            Creates a search for ISearchContent and types registered to be included in Unified Search results.
+            Adds a free text query for standard text fields using the InStandardFields method.
+            Automatically selects language used for stemming based on EPiServer.Globalization.ContentLanguage.PreferredCulture
+            and configured culture to stemming mappings in the episerver.find section in app.config/web.config if any.
+            </summary>
+            <param name="client">The IClient to create that will be used to build and execute the search.</param>
+            <param name="query">The free text query to search for.</param>
+        </member>
+        <member name="M:EPiServer.Find.Cms.CmsSiteIdentityLoader.#ctor(EPiServer.Web.SiteDefinitionRepository)">
+            <summary>
+            Initializes a new instance of the <see cref="T:EPiServer.Find.Cms.CmsSiteIdentityLoader"/> class.
+            </summary>
+            <param name="siteDefinitionRepository">The site definition repository.</param>
+        </member>
+        <member name="M:EPiServer.Find.Cms.CmsSiteIdentityLoader.#ctor(EPiServer.Web.ISiteDefinitionRepository)">
+            <summary>
+            Initializes a new instance of the <see cref="T:EPiServer.Find.Cms.CmsSiteIdentityLoader"/> class.
+            </summary>
+            <param name="siteDefinitionRepository">The site definition repository.</param>
+        </member>
+        <member name="P:EPiServer.Find.Cms.ExternalUrlBestBetSelector.IndexId">
+            <summary>
+            The Identity.ExternalId of the BestBet in the BestBetRepository, is stored as the IndexId
+            This links the indexed item (ElasticSearch) with the best bet in the BestBetRepository
+            </summary>
+        </member>
+        <member name="P:EPiServer.Find.Cms.ExternalUrlBestBetSelector.Language">
+            <summary>
+            Stores language for the external url best bet
+            </summary>
+        </member>
+        <member name="P:EPiServer.Find.Cms.ExternalUrlBestBetSelector.Url">
+            <summary>
+            External url for best bet
+            </summary>
+        </member>
+        <member name="T:EPiServer.Find.Cms.FindDatabaseSchemaUpdater">
+            <summary>
+            Updates the database with Find specific tables and SPs.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Find.Cms.ReindexTarget">
+            <summary>
+            Collection of <see cref="T:EPiServer.Core.ContentReference"/> and the languages the collection of <see cref="T:EPiServer.Core.ContentReference"/> are enabled on.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Find.Cms.ReindexTarget.ContentLinks">
+            <summary>
+            The content references.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Find.Cms.ReindexTarget.Languages">
+            <summary>
+            The languages the collection of <see cref="T:EPiServer.Core.ContentReference"/> are enabled on.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Find.Cms.ReindexTarget.SiteDefinition">
+            <summary>
+            The site that the collection of <see cref="T:EPiServer.Core.ContentReference"/> appears on
+            or <c>null</c> if unknown.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Find.Cms.IReindexInformation">
+            <summary>
+            <see cref="T:EPiServer.Find.Cms.ReindexTarget"/> items to be reindexed by <see cref="T:EPiServer.Find.Cms.ReindexTarget"/>.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Find.Cms.IReindexInformation.ReindexTargets">
+            <summary>
+            Content links to be reindexed.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Find.Cms.IReindexInformation.Root">
+            <summary>
+            Gets the root to index.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Find.Cms.ContentSearchExtensions.ExcludeDeleted``1(EPiServer.Find.ITypeSearch{``0})">
+            <summary>
+            Applies filters to <paramref name="search"/> excluding content that is in the waste basket. 
+            </summary>
+            <typeparam name="T">The type of content searched.</typeparam>
+            <param name="search">The search request being built.</param>
+            <returns>Search request with filters added.</returns>
+            <remarks>
+            Does not filter by publication status, language branch or access rights.
+            </remarks>
+        </member>
+        <member name="M:EPiServer.Find.Cms.ContentSearchExtensions.ExcludeContainerPages``1(EPiServer.Find.ITypeSearch{``0})">
+            <summary>
+            Applies filters to <paramref name="search"/> excluding container pages. 
+            </summary>
+            <typeparam name="T">The type of content searched.</typeparam>
+            <param name="search">The search request being built.</param>
+            <returns>Search request with filters added.</returns>
+            <remarks>
+            Does not filter by publication status, language branch or access rights.
+            </remarks>
+        </member>
+        <member name="M:EPiServer.Find.Cms.ContentSearchExtensions.ExcludeContentFolders``1(EPiServer.Find.ITypeSearch{``0})">
+            <summary>
+            Applies filters to <paramref name="search"/> excluding content folders. 
+            </summary>
+            <typeparam name="T">The type of content searched.</typeparam>
+            <param name="search">The search request being built.</param>
+            <returns>Search request with filters added.</returns>
+            <remarks>
+            Does not filter by publication status, language branch or access rights.
+            </remarks>
+        </member>
+        <member name="M:EPiServer.Find.Cms.ContentSearchExtensions.PublishedInCurrentLanguage``1(EPiServer.Find.ITypeSearch{``0},System.Nullable{System.DateTime})">
+            <summary>
+            Applies filters to <paramref name="search"/> excluding content that is not currently published in the active language branch. 
+            </summary>
+            <typeparam name="T">The type of content searched.</typeparam>
+            <param name="search">The search request being built.</param>
+            <param name="now">The date/time at which the content should be published. Defaults to DateTime.Now.</param>
+            <returns>Search request with filters added.</returns>
+            <remarks>
+            Filters both by publication status and Start/Stop publish. 
+            Content from other language branches may be included according to fallback and replacement language rules. 
+            Content not implementing IVersionable will be treated as published. 
+            Content not implementing ILocalizable will be treated as being in the current language branch.
+            Does not filter by access rights or whether content is deleted.
+            </remarks>
+        </member>
+        <member name="M:EPiServer.Find.Cms.ContentSearchExtensions.PublishedInLanguage``1(EPiServer.Find.ITypeSearch{``0},System.String,System.Nullable{System.DateTime})">
+            <summary>
+            Applies filters to <paramref name="search"/> excluding content that is not currently published in the specified language branch. 
+            </summary>
+            <typeparam name="T">The type of content searched.</typeparam>
+            <param name="search">The search request being built.</param>
+            <param name="language">The language to filter</param>
+            <param name="now">The date/time at which the content should be published. Defaults to DateTime.Now.</param>
+            <returns>Search request with filters added.</returns>
+            <remarks>
+            Filters both by publication status and Start/Stop publish. 
+            Content from other language branches may be included according to fallback and replacement language rules. 
+            Content not implementing IVersionable will be treated as published. 
+            Content not implementing ILocalizable will be treated as being in the specified language branch.
+            Does not filter by access rights or whether content is deleted.
+            </remarks>
+        </member>
+        <member name="M:EPiServer.Find.Cms.ContentSearchExtensions.FilterForVisitor``1(EPiServer.Find.ITypeSearch{``0},System.String)">
+            <summary>
+            Applies filters to <paramref name="search"/> excluding content that normally would not be visible to the current user in view mode.
+            </summary>
+            <typeparam name="T">The type of content searched.</typeparam>
+            <param name="search">The search request being built.</param>
+            <param name="language">Current language</param>
+            <returns>Search request with filters added.</returns>
+            <remarks>
+            Filters by read access rights. The current user must either have read access to the content explicitly (as a user)
+            or be in a group or virtual role that has access to the content. If the current user is anonymous the group Everyone
+            must have read access to the content.
+            Excludes content in the waste basket.
+            Filters both by publication status and Start/Stop publish. 
+            Content from other language branches may be included according to fallback and replacement language rules. 
+            Content not implementing IVersionable will be treated as published. 
+            Content not implementing ILocalizable will be treated as being in the current language branch.
+            Potentially filters on custom implementations of <see cref="T:EPiServer.Find.Cms.IFilterForVisitor"></see> which has been registered.
+            </remarks>
+        </member>
+        <member name="T:EPiServer.Find.Cms.DescendentLinksOfRootPage">
+            <summary>
+            Gets the descendants of the root page.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Find.Cms.DescendentLinksOfRootPage.#ctor(EPiServer.IContentLoader,EPiServer.DataAbstraction.ILanguageBranchRepository,EPiServer.Web.SiteDefinitionRepository)">
+            <summary>
+            Initializes a new instance of the <see cref="T:EPiServer.Find.Cms.DescendentLinksOfRootPage"/> class.
+            </summary>
+            <param name="contentLoader">The content loader.</param>
+            <param name="languageBranchRepository">The language branch repository.</param>
+        </member>
+        <member name="M:EPiServer.Find.Cms.DescendentLinksOfRootPage.#ctor(EPiServer.IContentLoader,EPiServer.DataAbstraction.ILanguageBranchRepository,EPiServer.Web.ISiteDefinitionRepository)">
+            <summary>
+            Initializes a new instance of the <see cref="T:EPiServer.Find.Cms.DescendentLinksOfRootPage"/> class.
+            </summary>
+            <param name="contentLoader">The content loader.</param>
+            <param name="languageBranchRepository">The language branch repository.</param>
+            <param name="siteDefinitionRepository">The site definition repository.</param>
+        </member>
+        <member name="P:EPiServer.Find.Cms.DescendentLinksOfRootPage.ReindexTargets">
+            <summary>
+            Returns all descendents of the root page.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Find.Cms.DescendentLinksOfRootPage.Root">
+            <summary>
+            Gets the page root.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Find.Cms.SearchProviders.EnterpriseMediaSearchProvider">
+            <summary>
+            A search provider for searing for Medias in EPiServer CMS through EPiServer.Find.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Find.Cms.SearchProviders.EnterpriseMediaSearchProvider.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:EPiServer.Find.Cms.SearchProviders.EnterprisePageSearchProvider"/> class.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Find.Cms.SearchProviders.EnterpriseMediaSearchProvider.#ctor(EPiServer.Framework.Localization.LocalizationService,EPiServer.Core.IEnterpriseSettings,EPiServer.DataAbstraction.IContentTypeRepository,EPiServer.Shell.UIDescriptorRegistry)">
+            <summary>
+            Initializes a new instance of the <see cref="T:EPiServer.Find.Cms.SearchProviders.EnterprisePageSearchProvider"/> class.
+            </summary>
+            <param name="localizationService">The localization service.</param>
+            <param name="enterpriseSettings">The enterprise settings.</param>
+            <param name="contentTypeRepository">The content type repository.</param>
+        </member>
+        <member name="M:EPiServer.Find.Cms.SearchProviders.EnterpriseMediaSearchProvider.#ctor(EPiServer.Framework.Localization.LocalizationService,EPiServer.Web.ISiteDefinitionResolver,EPiServer.DataAbstraction.IContentTypeRepository,EPiServer.Shell.UIDescriptorRegistry)">
+            <summary>
+            Initializes a new instance of the <see cref="T:EPiServer.Find.Cms.SearchProviders.EnterprisePageSearchProvider"/> class.
+            </summary>
+            <param name="localizationService">The localization service.</param>
+            <param name="siteDefinitionResolver">The Site Definition Resolver .</param>
+            <param name="contentTypeRepository">The content type repository.</param>
+        </member>
+        <member name="P:EPiServer.Find.Cms.SearchProviders.EnterpriseMediaSearchProvider.Category">
+            <summary>
+            Gets the CMS Media category.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Find.Cms.SearchProviders.EnterpriseMediaSearchProvider.Area">
+            <summary>
+            Area that the provider maps to, used for spotlight searching
+            </summary>
+            <value>CMS</value>
+        </member>
+        <member name="P:EPiServer.Find.Cms.SearchProviders.EnterpriseMediaSearchProvider.ToolTipResourceKeyBase">
+            <summary>
+            Gets the Media localization path.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Find.Cms.SearchProviders.EnterpriseMediaSearchProvider.ToolTipContentTypeNameResourceKey">
+            <summary>
+            Gets the name of the localization Media type.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Find.Cms.SearchProviders.EnterpriseMediaSearchProvider.IconCssClass(EPiServer.Core.MediaData)">
+            <summary>
+            Gets the icon CSS class for Medias.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Find.Cms.SearchProviders.EnterpriseMediaSearchProvider.AddContentSpecificFields(EPiServer.Find.IQueriedSearch{EPiServer.Core.IContentData,EPiServer.Find.Api.Querying.Queries.QueryStringQuery})">
+            <summary>
+            Adds the content specific field type "SearchAttachment" for file searches.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Find.Cms.SearchProviders.EnterpriseBlockSearchProvider">
+            <summary>
+            A search provider for searing for blocks in EPiServer CMS through EPiServer.Find.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Find.Cms.SearchProviders.EnterpriseBlockSearchProvider.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:EPiServer.Find.Cms.SearchProviders.EnterprisePageSearchProvider"/> class.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Find.Cms.SearchProviders.EnterpriseBlockSearchProvider.#ctor(EPiServer.Framework.Localization.LocalizationService,EPiServer.Core.IEnterpriseSettings,EPiServer.DataAbstraction.BlockTypeRepository,EPiServer.Shell.UIDescriptorRegistry)">
+            <summary>
+            Initializes a new instance of the <see cref="T:EPiServer.Find.Cms.SearchProviders.EnterprisePageSearchProvider"/> class.
+            </summary>
+            <param name="localizationService">The localization service.</param>
+            <param name="enterpriseSettings">The enterprise settings.</param>
+            <param name="blockTypeRepository">The block type repository.</param>
+        </member>
+        <member name="M:EPiServer.Find.Cms.SearchProviders.EnterpriseBlockSearchProvider.#ctor(EPiServer.Framework.Localization.LocalizationService,EPiServer.Web.ISiteDefinitionResolver,EPiServer.DataAbstraction.IContentTypeRepository,EPiServer.Shell.UIDescriptorRegistry)">
+            <summary>
+            Initializes a new instance of the <see cref="T:EPiServer.Find.Cms.SearchProviders.EnterprisePageSearchProvider"/> class.
+            </summary>
+            <param name="localizationService">The localization service.</param>
+            <param name="siteDefinitionResolver">The SiteDefinition Resolver .</param>
+            <param name="blockTypeRepository">The block type repository.</param>
+        </member>
+        <member name="P:EPiServer.Find.Cms.SearchProviders.EnterpriseBlockSearchProvider.Category">
+            <summary>
+            Gets the CMS block category.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Find.Cms.SearchProviders.EnterpriseBlockSearchProvider.Area">
+            <summary>
+            Area that the provider maps to, used for spotlight searching
+            </summary>
+            <value>CMS</value>
+        </member>
+        <member name="P:EPiServer.Find.Cms.SearchProviders.EnterpriseBlockSearchProvider.ToolTipResourceKeyBase">
+            <summary>
+            Gets the block localization path.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Find.Cms.SearchProviders.EnterpriseBlockSearchProvider.ToolTipContentTypeNameResourceKey">
+            <summary>
+            Gets the name of the localization block type.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Find.Cms.SearchProviders.EnterpriseBlockSearchProvider.IconCssClass(EPiServer.Core.BlockData)">
+            <summary>
+            Gets the icon CSS class for blocks.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Find.Cms.SearchProviders.EnterpriseContentSearchProviderBase`2.#ctor(EPiServer.Framework.Localization.LocalizationService,EPiServer.Web.ISiteDefinitionResolver,EPiServer.DataAbstraction.IContentTypeRepository,EPiServer.Shell.UIDescriptorRegistry)">
+            <summary>
+            Initializes a new instance of the <see cref="T:EPiServer.Find.Cms.SearchProviders.EnterprisePageSearchProvider"/> class.
+            </summary>
+            <param name="localizationService">The localization service.</param>
+            <param name="siteDefinitionResolver">The site Definition Resolver.</param>
+            <param name="contentTypeRepository">The content type repository.</param>
+        </member>
+        <member name="M:EPiServer.Find.Cms.SearchProviders.EnterpriseContentSearchProviderBase`2.Search(EPiServer.Shell.Search.Query)">
+            <summary>
+            Searches in all fields, and any word that begins with the page name. The results are filtered by access rights.
+            </summary>
+            <param name="query">The query.</param>
+            <returns></returns>
+        </member>
+        <member name="T:EPiServer.Find.Cms.SearchProviders.EnterprisePageSearchProvider">
+            <summary>
+            A search provider for searing for pages in EPiServer CMS through EPiServer.Find.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Find.Cms.SearchProviders.EnterprisePageSearchProvider.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:EPiServer.Find.Cms.SearchProviders.EnterprisePageSearchProvider"/> class.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Find.Cms.SearchProviders.EnterprisePageSearchProvider.#ctor(EPiServer.Framework.Localization.LocalizationService,EPiServer.Core.IEnterpriseSettings,EPiServer.DataAbstraction.PageTypeRepository,EPiServer.Shell.UIDescriptorRegistry)">
+            <summary>
+            Initializes a new instance of the <see cref="T:EPiServer.Find.Cms.SearchProviders.EnterprisePageSearchProvider"/> class.
+            </summary>
+            <param name="localizationService">The localization service.</param>
+            <param name="enterpriseSettings">The enterprise settings.</param>
+            <param name="pageTypeRepository">The page type repository.</param>
+        </member>
+        <member name="M:EPiServer.Find.Cms.SearchProviders.EnterprisePageSearchProvider.#ctor(EPiServer.Framework.Localization.LocalizationService,EPiServer.Web.ISiteDefinitionResolver,EPiServer.DataAbstraction.IContentTypeRepository,EPiServer.Shell.UIDescriptorRegistry)">
+            <summary>
+            Initializes a new instance of the <see cref="T:EPiServer.Find.Cms.SearchProviders.EnterprisePageSearchProvider"/> class.
+            </summary>
+            <param name="localizationService">The localization service.</param>
+            <param name="siteDefinitionResolver">The site definition resolver.</param>
+            <param name="contentTypeRepository">The content type repository.</param>
+        </member>
+        <member name="P:EPiServer.Find.Cms.SearchProviders.EnterprisePageSearchProvider.Category">
+            <summary>
+            Gets the CMS page category.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Find.Cms.SearchProviders.EnterprisePageSearchProvider.Area">
+            <summary>
+            Area that the provider maps to, used for spotlight searching
+            </summary>
+            <value>CMS</value>
+        </member>
+        <member name="P:EPiServer.Find.Cms.SearchProviders.EnterprisePageSearchProvider.ToolTipResourceKeyBase">
+            <summary>
+            Gets the page localization path.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Find.Cms.SearchProviders.EnterprisePageSearchProvider.ToolTipContentTypeNameResourceKey">
+            <summary>
+            Gets the name of the localization page type.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Find.Cms.SearchProviders.EnterprisePageSearchProvider.IconCssClass(EPiServer.Core.PageData)">
+            <summary>
+            Gets the icon CSS class for pages.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Find.Cms.SearchProviders.FindContentSearchProviderBase`2">
+            <summary>
+            Base search provider for searching for content in EPiServer CMS
+            </summary>
+            <typeparam name="TContentData">The type of the content data.</typeparam>
+            <typeparam name="TContentType">The type of the content type.</typeparam>
+        </member>
+        <member name="P:EPiServer.Find.Cms.SearchProviders.FindContentSearchProviderBase`2.LocalizationService">
+            <summary>
+            Gets the localization service.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Find.Cms.SearchProviders.FindContentSearchProviderBase`2.EnterpriseSettings">
+            <summary>
+            Gets the enterprise settings.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Find.Cms.SearchProviders.FindContentSearchProviderBase`2.Area">
+            <summary>
+            Area that the provider maps to, used for spotlight searching
+            </summary>
+        </member>
+        <member name="P:EPiServer.Find.Cms.SearchProviders.FindContentSearchProviderBase`2.Category">
+            <summary>
+            Gets the Pages category
+            </summary>
+        </member>
+        <member name="M:EPiServer.Find.Cms.SearchProviders.FindContentSearchProviderBase`2.Search(EPiServer.Shell.Search.Query)">
+            <summary>
+            Searches the specified query.
+            </summary>
+            <param name="query">The search query.</param>
+            A list of search results, containing links to the specific content in edit mode.
+        </member>
+        <member name="P:EPiServer.Find.Cms.SearchProviders.FindContentSearchProviderBase`2.ToolTipResourceKeyBase">
+            <summary>
+            The root path to the tool tip resource for the content search provider
+            </summary>
+        </member>
+        <member name="P:EPiServer.Find.Cms.SearchProviders.FindContentSearchProviderBase`2.ToolTipContentTypeNameResourceKey">
+            <summary>
+            The tool tip key for the content type name.
+            </summary>
+            <remarks>
+            The key will be used together with the <see cref="P:EPiServer.Find.Cms.SearchProviders.FindContentSearchProviderBase`2.ToolTipResourceKeyBase"/> to get the whole resource key to resource.
+            </remarks>
+        </member>
+        <member name="M:EPiServer.Find.Cms.SearchProviders.FindContentSearchProviderBase`2.IconCssClass(`0)">
+            <summary>
+            Gets the icon CSS class.
+            </summary>
+        </member>
+        <member name="F:EPiServer.Find.Cms.SearchProviders.FindContentSearchProviderBase`2.EditPath">
+            <summary>
+            Link for the search hit, which should be a link to the edit page for the content.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Find.Cms.SearchProviders.FindContentSearchProviderBase`2.GetEditUrl(`0,System.Boolean@)">
+            <summary>
+            Gets the edit URL for a <see cref="T:EPiServer.Core.IContent"/>.
+            </summary>
+            <param name="contentData">The content data.</param>
+            <param name="onCurrentHost">if set to <c>true</c> current host are used.</param>
+            <returns>
+            The edit url.
+            </returns>
+        </member>
+        <member name="M:EPiServer.Find.Cms.SearchProviders.FindContentSearchProviderBase`2.CreateSearchResult(`0)">
+            <summary>
+            Creates a SearchResult from a <see cref="T:EPiServer.Core.IContent"/>.
+            </summary>
+            <param name="contentData">The content data.</param>
+            <returns>
+            A search result.
+            </returns>
+        </member>
+        <member name="M:EPiServer.Find.Cms.SearchProviders.FindContentSearchProviderBase`2.CreatePreviewText(EPiServer.Core.IContentData)">
+            <summary>
+            Creates a preview text from a PageData. Will first look for the property MainIntro, and if that's missing, a property called MainBody.
+            </summary>
+            <param name="content">The page to extract the preview from.</param>
+            <returns>A string containing a preview for this page.</returns>
+        </member>
+        <member name="M:EPiServer.Find.Cms.SearchProviders.FindContentSearchProviderBase`2.GetPreviewTextFromFirstLongString(EPiServer.Core.IContentData)">
+            <summary>
+            Will look for the first long string property, ignoring link collections, that has a value.
+            </summary>
+            <param name="content">The page that we want to get a preview for.</param>
+            <returns>The value from the first non empty long string.</returns>
+        </member>
+        <member name="M:EPiServer.Find.Cms.SearchProviders.IContentExtensions.GetUri(EPiServer.Core.IContent)">
+            <summary>
+            Gets the URI for this instance.
+            </summary>
+            <param name="content">The content.</param>
+            <returns>An <see cref="T:System.Uri"/> that represents the type and id of the item.</returns>
+        </member>
+        <member name="M:EPiServer.Find.Cms.SearchProviders.IContentExtensions.GetUri(EPiServer.Core.IContent,System.Boolean)">
+            <summary>
+            Gets the URI for this instance.
+            </summary>
+            <param name="content">The content.</param>
+            <param name="createVersionUnspecificLink">if set to <c>true</c> creates a version unspecific link.</param>
+            <returns>
+            An <see cref="T:System.Uri"/> that represents the type and id of the item.
+            </returns>
+        </member>
+        <member name="M:EPiServer.Find.Cms.SearchProviders.IContentExtensions.GetTypeIdentifier(EPiServer.Core.IContent,EPiServer.Shell.UIDescriptorRegistry)">
+            <summary>
+            Gets the type identifier of the content.
+            </summary>
+            <param name="content">The content.</param>
+            <param name="uiDescriptorRegistry"></param>
+        </member>
+        <member name="T:EPiServer.Find.Cms.SearchProviders.FindContentSearchProviderConstants">
+            <summary>
+            Constants used in content search providers.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Find.Cms.SearchProviders.FindContentSearchProviderConstants.PageArea">
+            <summary>
+            Area that the provider maps to, used for spotlight searching
+            </summary>
+            <value>CMS pages</value>
+        </member>
+        <member name="P:EPiServer.Find.Cms.SearchProviders.FindContentSearchProviderConstants.PageCategory">
+            <summary>
+            Gets the Pages category
+            </summary>
+            <value>Pages</value>
+        </member>
+        <member name="P:EPiServer.Find.Cms.SearchProviders.FindContentSearchProviderConstants.PageToolTipResourceKeyBase">
+            <summary>
+            Gets the page localization path.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Find.Cms.SearchProviders.FindContentSearchProviderConstants.PageToolTipContentTypeNameResourceKey">
+            <summary>
+            Gets the name of the localization page type.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Find.Cms.SearchProviders.FindContentSearchProviderConstants.PageIconCssClass">
+            <summary>
+            Gets the icon CSS class for pages.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Find.Cms.SearchProviders.FindContentSearchProviderConstants.BlockArea">
+            <summary>
+            Area that the provider maps to, used for spotlight searching
+            </summary>
+            <value>CMS</value>
+        </member>
+        <member name="P:EPiServer.Find.Cms.SearchProviders.FindContentSearchProviderConstants.BlockCategory">
+            <summary>
+            Gets the Blocks category
+            </summary>
+            <value>Pages</value>
+        </member>
+        <member name="P:EPiServer.Find.Cms.SearchProviders.FindContentSearchProviderConstants.BlockToolTipResourceKeyBase">
+            <summary>
+            Gets the localization path to blocks.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Find.Cms.SearchProviders.FindContentSearchProviderConstants.BlockToolTipContentTypeNameResourceKey">
+            <summary>
+            Gets the name of the localization block type.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Find.Cms.SearchProviders.FindContentSearchProviderConstants.BlockIconCssClass">
+            <summary>
+            Gets the icon CSS class for blocks.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Find.Cms.SearchProviders.FindContentSearchProviderConstants.MediaArea">
+            <summary>
+            Area that the provider maps to, used for spotlight searching
+            </summary>
+            <value>CMS</value>
+        </member>
+        <member name="P:EPiServer.Find.Cms.SearchProviders.FindContentSearchProviderConstants.MediaCategory">
+            <summary>
+            Gets the Media category
+            </summary>
+            <value>Pages</value>
+        </member>
+        <member name="P:EPiServer.Find.Cms.SearchProviders.FindContentSearchProviderConstants.MediaToolTipResourceKeyBase">
+            <summary>
+            Gets the localization path to media.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Find.Cms.SearchProviders.FindContentSearchProviderConstants.MediaToolTipContentTypeNameResourceKey">
+            <summary>
+            Gets the name of the localization media type.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Find.Cms.SearchProviders.FindContentSearchProviderConstants.MediaIconCssClass">
+            <summary>
+            Gets the icon CSS class for media.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Find.Cms.ContentIndexer.ReindexInformation">
+            <summary>
+            <see cref="T:EPiServer.Find.Cms.IReindexInformation"/> items that will be reindexed.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Find.Cms.ContentIndexer.Index(EPiServer.Core.IContent,EPiServer.Find.Cms.IndexOptions)">
+            <summary>
+            Indexes the published or latest version of <paramref name="content"/> from all language branches
+            according to instructions provided in <paramref name="options"/>.
+            </summary>
+            <param name="content">Content to be indexed.</param>
+            /// <param name="options">Options for indexing. If null, a new instance of the IndexOptions class will be used.</param>
+            <returns></returns>
+        </member>
+        <member name="M:EPiServer.Find.Cms.SearchRequestExtensions.GetContentResult``1(EPiServer.Find.ITypeSearch{``0},System.Int32,System.Boolean)">
+            <summary>
+            Returns the actual content matching <paramref name="search"/> retrieved from the default IContentRepository. 
+            When executed in context of a user without edit or admin access, 
+            or if <paramref name="cacheForEditorsAndAdmins"/> is true the search request is cached for 
+            <paramref name="cacheForSeconds"/> seconds.
+            </summary>
+            <typeparam name="TContentData">The type of content to search for and return.</typeparam>
+            <param name="search">The search request.</param>
+            <param name="cacheForSeconds">The number of seconds to cache the search request's result for.</param>
+            <param name="cacheForEditorsAndAdmins">Enables the request to be cached for users with edit or admin access.</param>
+            <returns>The content matching the search request.</returns>
+            <remarks>While the type constraint is for IContentData only IContent will be returned. 
+            If <typeparamref name="TContentData"/> is not a type assignable from IContent a filter 
+            for IContent will be added to the search request.
+            The number of content returned may differ from the search result if content from different sites have been 
+            indexed (such as when multiple developers or hosting environments use the same index) or if the index has not been updated
+            due to failures while indexing/deleting from the index.</remarks>
+        </member>
+        <member name="M:EPiServer.Find.Cms.XhtmlStringProjectionProcessor.ReplaceAsHighlightedCall(System.Linq.Expressions.Expression)">
+            <summary>
+            Replaces calls to AsHighlighted on XhtmlStrings with a call to AsHighlighted on an indexed methods return value.
+            For instance it rewrited x.MainBody.AsHighlighted() to x.MainBody.AsViewedByAnonymous().AsHighlighted()
+            </summary>
+            <param name="original"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EPiServer.Find.Cms.XhtmlStringProjectionProcessor.ReplaceAsCroppedCall(System.Linq.Expressions.Expression)">
+            <summary>
+            Replaces calls to AsCropped on XhtmlStrings with a call to AsCropped on an indexed methods return value.
+            For instance it rewrited x.MainBody.AsCropped() to x.MainBody.AsViewedByAnonymous().AsCropped()
+            </summary>
+            <param name="original"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

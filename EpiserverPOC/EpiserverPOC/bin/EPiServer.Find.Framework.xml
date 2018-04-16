@@ -1,0 +1,142 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EPiServer.Find.Framework</name>
+    </assembly>
+    <members>
+        <member name="T:EPiServer.Find.Framework.UI.Localization.LanguageDocument">
+            <summary>
+            Used to load and fetch translations that are stored in xml documents.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Find.Framework.UI.Localization.LanguageDocument.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:EPiServer.Find.Framework.UI.Localization.LanguageDocument"/> class.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Find.Framework.UI.Localization.LanguageDocument.Root">
+            <summary>
+            Gets the root node.
+            </summary>
+            <value>The root node.</value>
+        </member>
+        <member name="M:EPiServer.Find.Framework.UI.Localization.LanguageDocument.FindNode(System.String[])">
+            <summary>
+            Finds the node that matches the given language key.
+            </summary>
+            <param name="tokens">The tokens.</param>
+            <returns>
+            The <see cref="T:EPiServer.Find.Framework.UI.Localization.LanguageNode"/> that matches the given key, or null if no such translation exists.
+            </returns>
+        </member>
+        <member name="M:EPiServer.Find.Framework.UI.Localization.LanguageDocument.Translate(System.String[],System.String)">
+            <summary>
+            Translates the specified key.
+            </summary>
+            <param name="keys">The keys.</param>
+            <param name="language">The language.</param>
+            <returns>
+            A translated string if the translation exists; otherwise null.
+            </returns>
+        </member>
+        <member name="M:EPiServer.Find.Framework.UI.Localization.LanguageDocument.Load(System.IO.Stream)">
+            <summary>
+            Loads translations from a specified file stream.
+            </summary>
+            <param name="stream">The stream containg the XML document.</param>
+        </member>
+        <member name="T:EPiServer.Find.Framework.UI.Localization.LanguageNode">
+            <summary>
+            LanguageNode are items in a <see cref="T:EPiServer.Find.Framework.UI.Localization.LanguageDocument"/> that is used to store the content of language translation files.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Find.Framework.UI.Localization.LanguageNode.#ctor(System.String)">
+            <summary>
+            Create a new LanguageNode with the given name.
+            </summary>
+            <param name="name">The name of the new node.</param>
+        </member>
+        <member name="P:EPiServer.Find.Framework.UI.Localization.LanguageNode.Name">
+            <summary>
+            Get the name of the node.
+            </summary>
+            <remarks>
+            If the node has an attribute, it will be returned with the Name property. To get the
+            name without attribute, use the SimpleName property. I e if the node is created with
+            constructor parameter "node[@id=23]", Name will return "node[@id=23]", SimpleName
+            will return "node" and Attribute will return " [@id=23]".
+            </remarks>
+        </member>
+        <member name="P:EPiServer.Find.Framework.UI.Localization.LanguageNode.Value">
+            <summary>
+            Access the value of the node.
+            </summary>
+            <remarks>
+            If the node has not been give a value, it will return String.Empty.
+            </remarks>
+        </member>
+        <member name="P:EPiServer.Find.Framework.UI.Localization.LanguageNode.Parent">
+            <summary>
+            Get the parent of this node.
+            </summary>
+            <remarks>
+            If this is the root node, null is returned.
+            </remarks>
+        </member>
+        <member name="P:EPiServer.Find.Framework.UI.Localization.LanguageNode.Children">
+            <summary>
+            Get a collection of children to this node.
+            </summary>
+            <remarks>
+            Even if no children exists, a valid collection is returned with Count = 0
+            </remarks>
+        </member>
+        <member name="P:EPiServer.Find.Framework.UI.Localization.LanguageNode.HasChildren">
+            <summary>
+            Gets a value indicating whether this instance has children.
+            </summary>
+            <value>
+            	<c>true</c> if this instance has children; otherwise, <c>false</c>.
+            </value>
+            <remarks>
+            Use this property for performance reasons. When accessing the Children property you will create a new dictionary object if none exists.
+            </remarks>
+        </member>
+        <member name="P:EPiServer.Find.Framework.UI.Localization.LanguageNode.Item(System.String)">
+            <summary>
+            Accesses the child node with the requested name.
+            </summary>
+            <param name="name">Name of the child node to access.</param>
+            <returns>The requested LanguageNode.</returns>
+            <remarks>
+            If the node is not found, null is returned for the get accessor and a new node is inserted for the set accessor.
+            </remarks>
+        </member>
+        <member name="P:EPiServer.Find.Framework.UI.Localization.LanguageNode.Path">
+            <summary>
+            Get the full path to this node.
+            </summary>
+            <remarks>
+            Returns a path formatted as a simple XPath expression, for example "/root/child1/child2".
+            </remarks>
+        </member>
+        <member name="M:EPiServer.Find.Framework.UI.Localization.LanguageNode.AddIfNotExist(System.String)">
+            <summary>
+            Add a new node with the given name if it does not exists, otherwise returns the existing node.
+            </summary>
+            <param name="name">The node name.</param>
+            <returns>A new or previously existing node.</returns>
+        </member>
+        <member name="P:EPiServer.Find.Framework.UI.Localization.LanguageNode.IsNonPathNode">
+            <summary>
+            Returns <c>true</c> if the node is part of the xml hierarchy, but not included in the language path/key, otherwise <c>false</c>.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Find.Framework.BestBets.ExternalUrlBestBet">
+            <summary>
+            Type indexed in ElasticSearch that serves as a placeholder in
+            search results with values mapped onto it from the best bet
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,563 @@
+﻿2018-04-11 21:19:58,694 [17] ERROR EPiServer.Search.Internal.RequestHandler: Update batch could not be sent to service uri 'http://localhost:61975/IndexingService/IndexingService.svc/update/?accesskey=local'
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+2018-04-11 21:19:58,697 [17] ERROR EPiServer.Search.Internal.RequestQueueHandler: Send batch for named index 'serviceName' failed. Items are left in queue.
+2018-04-11 21:20:28,734 [17] ERROR EPiServer.Search.Internal.RequestHandler: Update batch could not be sent to service uri 'http://localhost:61975/IndexingService/IndexingService.svc/update/?accesskey=local'
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+2018-04-11 21:20:28,734 [17] ERROR EPiServer.Search.Internal.RequestQueueHandler: Send batch for named index 'serviceName' failed. Items are left in queue.
+2018-04-11 21:20:58,757 [16] ERROR EPiServer.Search.Internal.RequestHandler: Update batch could not be sent to service uri 'http://localhost:61975/IndexingService/IndexingService.svc/update/?accesskey=local'
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+2018-04-11 21:20:58,757 [16] ERROR EPiServer.Search.Internal.RequestQueueHandler: Send batch for named index 'serviceName' failed. Items are left in queue.
+2018-04-11 21:21:10,156 [13] ERROR EPiServer.Util.Internal.TrimContentVersionsJob: Provider with key '' throwed exception when calling IContentVersionRepositoryEx.ListObsolete
+System.InvalidCastException: Object cannot be cast from DBNull to other types.
+   at System.DBNull.System.IConvertible.ToInt32(IFormatProvider provider)
+   at System.Convert.ToInt32(Object value)
+   at EPiServer.DataAccess.Internal.ContentVersionDB.<>c__DisplayClass5_0.<ListObsoleteVersions>b__0()
+   at EPiServer.Data.Providers.Internal.SqlDatabaseExecutor.<>c__DisplayClass31_0`1.<Execute>b__0()
+   at EPiServer.Data.Providers.SqlTransientErrorsRetryPolicy.Execute[TResult](Func`1 method)
+   at EPiServer.Data.Providers.Internal.SqlDatabaseExecutor.Execute[TResult](Func`1 action)
+   at EPiServer.DataAccess.Internal.ContentVersionDB.ListObsoleteVersions(Int32 maxPreviouslyPublishedVersions, Int32 maxResultCount, Int32& totalCount)
+   at EPiServer.DataAbstraction.Internal.DefaultContentVersionRepository.ListObsolete(Int32 maxRows, Int32& totalCount)
+   at EPiServer.Util.Internal.TrimContentVersionsJob.<>c__DisplayClass15_1.<Execute>b__2()
+   at EPiServer.Util.Internal.TrimContentVersionsJob.ExecuteInTryCatch(Func`1 failureAction, Action action)
+System.InvalidCastException: Object cannot be cast from DBNull to other types.
+   at System.DBNull.System.IConvertible.ToInt32(IFormatProvider provider)
+   at System.Convert.ToInt32(Object value)
+   at EPiServer.DataAccess.Internal.ContentVersionDB.<>c__DisplayClass5_0.<ListObsoleteVersions>b__0()
+   at EPiServer.Data.Providers.Internal.SqlDatabaseExecutor.<>c__DisplayClass31_0`1.<Execute>b__0()
+   at EPiServer.Data.Providers.SqlTransientErrorsRetryPolicy.Execute[TResult](Func`1 method)
+   at EPiServer.Data.Providers.Internal.SqlDatabaseExecutor.Execute[TResult](Func`1 action)
+   at EPiServer.DataAccess.Internal.ContentVersionDB.ListObsoleteVersions(Int32 maxPreviouslyPublishedVersions, Int32 maxResultCount, Int32& totalCount)
+   at EPiServer.DataAbstraction.Internal.DefaultContentVersionRepository.ListObsolete(Int32 maxRows, Int32& totalCount)
+   at EPiServer.Util.Internal.TrimContentVersionsJob.<>c__DisplayClass15_1.<Execute>b__2()
+   at EPiServer.Util.Internal.TrimContentVersionsJob.ExecuteInTryCatch(Func`1 failureAction, Action action)
+2018-04-11 21:21:28,800 [19] ERROR EPiServer.Search.Internal.RequestHandler: Update batch could not be sent to service uri 'http://localhost:61975/IndexingService/IndexingService.svc/update/?accesskey=local'
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+2018-04-11 21:21:28,800 [19] ERROR EPiServer.Search.Internal.RequestQueueHandler: Send batch for named index 'serviceName' failed. Items are left in queue.
+2018-04-11 21:21:58,834 [21] ERROR EPiServer.Search.Internal.RequestHandler: Update batch could not be sent to service uri 'http://localhost:61975/IndexingService/IndexingService.svc/update/?accesskey=local'
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+2018-04-11 21:21:58,834 [21] ERROR EPiServer.Search.Internal.RequestQueueHandler: Send batch for named index 'serviceName' failed. Items are left in queue.
+2018-04-11 21:22:28,861 [17] ERROR EPiServer.Search.Internal.RequestHandler: Update batch could not be sent to service uri 'http://localhost:61975/IndexingService/IndexingService.svc/update/?accesskey=local'
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+2018-04-11 21:22:28,861 [17] ERROR EPiServer.Search.Internal.RequestQueueHandler: Send batch for named index 'serviceName' failed. Items are left in queue.
+2018-04-11 21:22:58,885 [21] ERROR EPiServer.Search.Internal.RequestHandler: Update batch could not be sent to service uri 'http://localhost:61975/IndexingService/IndexingService.svc/update/?accesskey=local'
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+2018-04-11 21:22:58,885 [21] ERROR EPiServer.Search.Internal.RequestQueueHandler: Send batch for named index 'serviceName' failed. Items are left in queue.
+2018-04-11 21:23:28,910 [17] ERROR EPiServer.Search.Internal.RequestHandler: Update batch could not be sent to service uri 'http://localhost:61975/IndexingService/IndexingService.svc/update/?accesskey=local'
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+2018-04-11 21:23:28,910 [17] ERROR EPiServer.Search.Internal.RequestQueueHandler: Send batch for named index 'serviceName' failed. Items are left in queue.
+2018-04-11 21:23:58,995 [19] ERROR EPiServer.Search.Internal.RequestHandler: Update batch could not be sent to service uri 'http://localhost:61975/IndexingService/IndexingService.svc/update/?accesskey=local'
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+2018-04-11 21:23:58,995 [19] ERROR EPiServer.Search.Internal.RequestQueueHandler: Send batch for named index 'serviceName' failed. Items are left in queue.
+2018-04-11 21:24:29,037 [19] ERROR EPiServer.Search.Internal.RequestHandler: Update batch could not be sent to service uri 'http://localhost:61975/IndexingService/IndexingService.svc/update/?accesskey=local'
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+2018-04-11 21:24:29,037 [19] ERROR EPiServer.Search.Internal.RequestQueueHandler: Send batch for named index 'serviceName' failed. Items are left in queue.
+2018-04-11 21:24:59,064 [31] ERROR EPiServer.Search.Internal.RequestHandler: Update batch could not be sent to service uri 'http://localhost:61975/IndexingService/IndexingService.svc/update/?accesskey=local'
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+2018-04-11 21:24:59,064 [31] ERROR EPiServer.Search.Internal.RequestQueueHandler: Send batch for named index 'serviceName' failed. Items are left in queue.
+2018-04-11 21:25:29,084 [29] ERROR EPiServer.Search.Internal.RequestHandler: Update batch could not be sent to service uri 'http://localhost:61975/IndexingService/IndexingService.svc/update/?accesskey=local'
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+2018-04-11 21:25:29,084 [29] ERROR EPiServer.Search.Internal.RequestQueueHandler: Send batch for named index 'serviceName' failed. Items are left in queue.
+2018-04-11 21:25:59,106 [31] ERROR EPiServer.Search.Internal.RequestHandler: Update batch could not be sent to service uri 'http://localhost:61975/IndexingService/IndexingService.svc/update/?accesskey=local'
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+2018-04-11 21:25:59,106 [31] ERROR EPiServer.Search.Internal.RequestQueueHandler: Send batch for named index 'serviceName' failed. Items are left in queue.
+2018-04-11 21:26:29,129 [17] ERROR EPiServer.Search.Internal.RequestHandler: Update batch could not be sent to service uri 'http://localhost:61975/IndexingService/IndexingService.svc/update/?accesskey=local'
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+2018-04-11 21:26:29,129 [17] ERROR EPiServer.Search.Internal.RequestQueueHandler: Send batch for named index 'serviceName' failed. Items are left in queue.
+2018-04-11 21:26:59,147 [19] ERROR EPiServer.Search.Internal.RequestHandler: Update batch could not be sent to service uri 'http://localhost:61975/IndexingService/IndexingService.svc/update/?accesskey=local'
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+2018-04-11 21:26:59,147 [19] ERROR EPiServer.Search.Internal.RequestQueueHandler: Send batch for named index 'serviceName' failed. Items are left in queue.
+2018-04-11 21:27:29,179 [17] ERROR EPiServer.Search.Internal.RequestHandler: Update batch could not be sent to service uri 'http://localhost:61975/IndexingService/IndexingService.svc/update/?accesskey=local'
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+2018-04-11 21:27:29,179 [17] ERROR EPiServer.Search.Internal.RequestQueueHandler: Send batch for named index 'serviceName' failed. Items are left in queue.
+2018-04-11 21:27:59,210 [35] ERROR EPiServer.Search.Internal.RequestHandler: Update batch could not be sent to service uri 'http://localhost:61975/IndexingService/IndexingService.svc/update/?accesskey=local'
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+2018-04-11 21:27:59,210 [35] ERROR EPiServer.Search.Internal.RequestQueueHandler: Send batch for named index 'serviceName' failed. Items are left in queue.
+2018-04-11 21:28:29,235 [32] ERROR EPiServer.Search.Internal.RequestHandler: Update batch could not be sent to service uri 'http://localhost:61975/IndexingService/IndexingService.svc/update/?accesskey=local'
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+2018-04-11 21:28:29,235 [32] ERROR EPiServer.Search.Internal.RequestQueueHandler: Send batch for named index 'serviceName' failed. Items are left in queue.
+2018-04-11 21:28:59,270 [28] ERROR EPiServer.Search.Internal.RequestHandler: Update batch could not be sent to service uri 'http://localhost:61975/IndexingService/IndexingService.svc/update/?accesskey=local'
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+2018-04-11 21:28:59,270 [28] ERROR EPiServer.Search.Internal.RequestQueueHandler: Send batch for named index 'serviceName' failed. Items are left in queue.
+2018-04-11 21:29:29,292 [33] ERROR EPiServer.Search.Internal.RequestHandler: Update batch could not be sent to service uri 'http://localhost:61975/IndexingService/IndexingService.svc/update/?accesskey=local'
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+2018-04-11 21:29:29,292 [33] ERROR EPiServer.Search.Internal.RequestQueueHandler: Send batch for named index 'serviceName' failed. Items are left in queue.
+2018-04-11 21:29:59,317 [35] ERROR EPiServer.Search.Internal.RequestHandler: Update batch could not be sent to service uri 'http://localhost:61975/IndexingService/IndexingService.svc/update/?accesskey=local'
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+2018-04-11 21:29:59,317 [35] ERROR EPiServer.Search.Internal.RequestQueueHandler: Send batch for named index 'serviceName' failed. Items are left in queue.
+2018-04-11 21:30:29,354 [24] ERROR EPiServer.Search.Internal.RequestHandler: Update batch could not be sent to service uri 'http://localhost:61975/IndexingService/IndexingService.svc/update/?accesskey=local'
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+2018-04-11 21:30:29,355 [24] ERROR EPiServer.Search.Internal.RequestQueueHandler: Send batch for named index 'serviceName' failed. Items are left in queue.
+2018-04-11 21:30:59,381 [26] ERROR EPiServer.Search.Internal.RequestHandler: Update batch could not be sent to service uri 'http://localhost:61975/IndexingService/IndexingService.svc/update/?accesskey=local'
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+2018-04-11 21:30:59,382 [26] ERROR EPiServer.Search.Internal.RequestQueueHandler: Send batch for named index 'serviceName' failed. Items are left in queue.
+2018-04-11 21:31:29,407 [26] ERROR EPiServer.Search.Internal.RequestHandler: Update batch could not be sent to service uri 'http://localhost:61975/IndexingService/IndexingService.svc/update/?accesskey=local'
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+2018-04-11 21:31:29,407 [26] ERROR EPiServer.Search.Internal.RequestQueueHandler: Send batch for named index 'serviceName' failed. Items are left in queue.
+2018-04-11 21:31:59,438 [33] ERROR EPiServer.Search.Internal.RequestHandler: Update batch could not be sent to service uri 'http://localhost:61975/IndexingService/IndexingService.svc/update/?accesskey=local'
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+2018-04-11 21:31:59,438 [33] ERROR EPiServer.Search.Internal.RequestQueueHandler: Send batch for named index 'serviceName' failed. Items are left in queue.
+2018-04-11 21:32:29,476 [35] ERROR EPiServer.Search.Internal.RequestHandler: Update batch could not be sent to service uri 'http://localhost:61975/IndexingService/IndexingService.svc/update/?accesskey=local'
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+2018-04-11 21:32:29,476 [35] ERROR EPiServer.Search.Internal.RequestQueueHandler: Send batch for named index 'serviceName' failed. Items are left in queue.
+2018-04-11 21:32:59,495 [37] ERROR EPiServer.Search.Internal.RequestHandler: Update batch could not be sent to service uri 'http://localhost:61975/IndexingService/IndexingService.svc/update/?accesskey=local'
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+2018-04-11 21:32:59,495 [37] ERROR EPiServer.Search.Internal.RequestQueueHandler: Send batch for named index 'serviceName' failed. Items are left in queue.
+2018-04-11 21:33:29,513 [36] ERROR EPiServer.Search.Internal.RequestHandler: Update batch could not be sent to service uri 'http://localhost:61975/IndexingService/IndexingService.svc/update/?accesskey=local'
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+2018-04-11 21:33:29,513 [36] ERROR EPiServer.Search.Internal.RequestQueueHandler: Send batch for named index 'serviceName' failed. Items are left in queue.
+2018-04-11 21:33:59,539 [36] ERROR EPiServer.Search.Internal.RequestHandler: Update batch could not be sent to service uri 'http://localhost:61975/IndexingService/IndexingService.svc/update/?accesskey=local'
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+2018-04-11 21:33:59,539 [36] ERROR EPiServer.Search.Internal.RequestQueueHandler: Send batch for named index 'serviceName' failed. Items are left in queue.
+2018-04-11 21:34:29,560 [12] ERROR EPiServer.Search.Internal.RequestHandler: Update batch could not be sent to service uri 'http://localhost:61975/IndexingService/IndexingService.svc/update/?accesskey=local'
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+2018-04-11 21:34:29,560 [12] ERROR EPiServer.Search.Internal.RequestQueueHandler: Send batch for named index 'serviceName' failed. Items are left in queue.
+2018-04-11 21:34:59,591 [37] ERROR EPiServer.Search.Internal.RequestHandler: Update batch could not be sent to service uri 'http://localhost:61975/IndexingService/IndexingService.svc/update/?accesskey=local'
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+2018-04-11 21:34:59,591 [37] ERROR EPiServer.Search.Internal.RequestQueueHandler: Send batch for named index 'serviceName' failed. Items are left in queue.
+2018-04-11 21:35:29,612 [37] ERROR EPiServer.Search.Internal.RequestHandler: Update batch could not be sent to service uri 'http://localhost:61975/IndexingService/IndexingService.svc/update/?accesskey=local'
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+2018-04-11 21:35:29,612 [37] ERROR EPiServer.Search.Internal.RequestQueueHandler: Send batch for named index 'serviceName' failed. Items are left in queue.
+2018-04-11 21:35:59,644 [47] ERROR EPiServer.Search.Internal.RequestHandler: Update batch could not be sent to service uri 'http://localhost:61975/IndexingService/IndexingService.svc/update/?accesskey=local'
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+2018-04-11 21:35:59,644 [47] ERROR EPiServer.Search.Internal.RequestQueueHandler: Send batch for named index 'serviceName' failed. Items are left in queue.
+2018-04-11 21:36:29,677 [51] ERROR EPiServer.Search.Internal.RequestHandler: Update batch could not be sent to service uri 'http://localhost:61975/IndexingService/IndexingService.svc/update/?accesskey=local'
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+2018-04-11 21:36:29,677 [51] ERROR EPiServer.Search.Internal.RequestQueueHandler: Send batch for named index 'serviceName' failed. Items are left in queue.
+2018-04-11 21:36:59,712 [60] ERROR EPiServer.Search.Internal.RequestHandler: Update batch could not be sent to service uri 'http://localhost:61975/IndexingService/IndexingService.svc/update/?accesskey=local'
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+2018-04-11 21:36:59,712 [60] ERROR EPiServer.Search.Internal.RequestQueueHandler: Send batch for named index 'serviceName' failed. Items are left in queue.
+2018-04-11 21:37:29,736 [54] ERROR EPiServer.Search.Internal.RequestHandler: Update batch could not be sent to service uri 'http://localhost:61975/IndexingService/IndexingService.svc/update/?accesskey=local'
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+2018-04-11 21:37:29,736 [54] ERROR EPiServer.Search.Internal.RequestQueueHandler: Send batch for named index 'serviceName' failed. Items are left in queue.
+2018-04-11 21:37:59,761 [42] ERROR EPiServer.Search.Internal.RequestHandler: Update batch could not be sent to service uri 'http://localhost:61975/IndexingService/IndexingService.svc/update/?accesskey=local'
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+2018-04-11 21:37:59,762 [42] ERROR EPiServer.Search.Internal.RequestQueueHandler: Send batch for named index 'serviceName' failed. Items are left in queue.
+2018-04-11 21:38:29,801 [55] ERROR EPiServer.Search.Internal.RequestHandler: Update batch could not be sent to service uri 'http://localhost:61975/IndexingService/IndexingService.svc/update/?accesskey=local'
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+2018-04-11 21:38:29,802 [55] ERROR EPiServer.Search.Internal.RequestQueueHandler: Send batch for named index 'serviceName' failed. Items are left in queue.
+2018-04-11 21:38:59,840 [64] ERROR EPiServer.Search.Internal.RequestHandler: Update batch could not be sent to service uri 'http://localhost:61975/IndexingService/IndexingService.svc/update/?accesskey=local'
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+2018-04-11 21:38:59,840 [64] ERROR EPiServer.Search.Internal.RequestQueueHandler: Send batch for named index 'serviceName' failed. Items are left in queue.
+2018-04-11 21:39:29,864 [66] ERROR EPiServer.Search.Internal.RequestHandler: Update batch could not be sent to service uri 'http://localhost:61975/IndexingService/IndexingService.svc/update/?accesskey=local'
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+2018-04-11 21:39:29,864 [66] ERROR EPiServer.Search.Internal.RequestQueueHandler: Send batch for named index 'serviceName' failed. Items are left in queue.
+2018-04-11 21:39:59,892 [63] ERROR EPiServer.Search.Internal.RequestHandler: Update batch could not be sent to service uri 'http://localhost:61975/IndexingService/IndexingService.svc/update/?accesskey=local'
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+2018-04-11 21:39:59,893 [63] ERROR EPiServer.Search.Internal.RequestQueueHandler: Send batch for named index 'serviceName' failed. Items are left in queue.
+2018-04-11 21:40:29,925 [65] ERROR EPiServer.Search.Internal.RequestHandler: Update batch could not be sent to service uri 'http://localhost:61975/IndexingService/IndexingService.svc/update/?accesskey=local'
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+2018-04-11 21:40:29,926 [65] ERROR EPiServer.Search.Internal.RequestQueueHandler: Send batch for named index 'serviceName' failed. Items are left in queue.
+2018-04-11 21:40:59,949 [59] ERROR EPiServer.Search.Internal.RequestHandler: Update batch could not be sent to service uri 'http://localhost:61975/IndexingService/IndexingService.svc/update/?accesskey=local'
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+2018-04-11 21:40:59,949 [59] ERROR EPiServer.Search.Internal.RequestQueueHandler: Send batch for named index 'serviceName' failed. Items are left in queue.
+2018-04-11 21:41:29,963 [71] ERROR EPiServer.Search.Internal.RequestHandler: Update batch could not be sent to service uri 'http://localhost:61975/IndexingService/IndexingService.svc/update/?accesskey=local'
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+2018-04-11 21:41:29,963 [71] ERROR EPiServer.Search.Internal.RequestQueueHandler: Send batch for named index 'serviceName' failed. Items are left in queue.
+2018-04-11 21:41:59,995 [79] ERROR EPiServer.Search.Internal.RequestHandler: Update batch could not be sent to service uri 'http://localhost:61975/IndexingService/IndexingService.svc/update/?accesskey=local'
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+2018-04-11 21:41:59,996 [79] ERROR EPiServer.Search.Internal.RequestQueueHandler: Send batch for named index 'serviceName' failed. Items are left in queue.
+2018-04-11 21:42:30,035 [70] ERROR EPiServer.Search.Internal.RequestHandler: Update batch could not be sent to service uri 'http://localhost:61975/IndexingService/IndexingService.svc/update/?accesskey=local'
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+2018-04-11 21:42:30,036 [70] ERROR EPiServer.Search.Internal.RequestQueueHandler: Send batch for named index 'serviceName' failed. Items are left in queue.
+2018-04-11 21:43:00,061 [74] ERROR EPiServer.Search.Internal.RequestHandler: Update batch could not be sent to service uri 'http://localhost:61975/IndexingService/IndexingService.svc/update/?accesskey=local'
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+2018-04-11 21:43:00,061 [74] ERROR EPiServer.Search.Internal.RequestQueueHandler: Send batch for named index 'serviceName' failed. Items are left in queue.
+2018-04-11 21:43:30,091 [73] ERROR EPiServer.Search.Internal.RequestHandler: Update batch could not be sent to service uri 'http://localhost:61975/IndexingService/IndexingService.svc/update/?accesskey=local'
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+2018-04-11 21:43:30,091 [73] ERROR EPiServer.Search.Internal.RequestQueueHandler: Send batch for named index 'serviceName' failed. Items are left in queue.
+2018-04-11 21:44:00,129 [60] ERROR EPiServer.Search.Internal.RequestHandler: Update batch could not be sent to service uri 'http://localhost:61975/IndexingService/IndexingService.svc/update/?accesskey=local'
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+2018-04-11 21:44:00,129 [60] ERROR EPiServer.Search.Internal.RequestQueueHandler: Send batch for named index 'serviceName' failed. Items are left in queue.
+2018-04-11 22:16:33,035 [11] ERROR EPiServer.Search.Internal.RequestHandler: Update batch could not be sent to service uri 'http://localhost:61975/IndexingService/IndexingService.svc/update/?accesskey=local'
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+2018-04-11 22:16:33,051 [11] ERROR EPiServer.Search.Internal.RequestQueueHandler: Send batch for named index 'serviceName' failed. Items are left in queue.
+2018-04-11 22:17:03,041 [13] ERROR EPiServer.Search.Internal.RequestHandler: Update batch could not be sent to service uri 'http://localhost:61975/IndexingService/IndexingService.svc/update/?accesskey=local'
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+2018-04-11 22:17:03,056 [13] ERROR EPiServer.Search.Internal.RequestQueueHandler: Send batch for named index 'serviceName' failed. Items are left in queue.
+2018-04-11 22:17:33,062 [14] ERROR EPiServer.Search.Internal.RequestHandler: Update batch could not be sent to service uri 'http://localhost:61975/IndexingService/IndexingService.svc/update/?accesskey=local'
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+2018-04-11 22:17:33,062 [14] ERROR EPiServer.Search.Internal.RequestQueueHandler: Send batch for named index 'serviceName' failed. Items are left in queue.
+2018-04-11 22:18:03,095 [27] ERROR EPiServer.Search.Internal.RequestHandler: Update batch could not be sent to service uri 'http://localhost:61975/IndexingService/IndexingService.svc/update/?accesskey=local'
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+2018-04-11 22:18:03,095 [27] ERROR EPiServer.Search.Internal.RequestQueueHandler: Send batch for named index 'serviceName' failed. Items are left in queue.
+2018-04-11 22:18:33,139 [27] ERROR EPiServer.Search.Internal.RequestHandler: Update batch could not be sent to service uri 'http://localhost:61975/IndexingService/IndexingService.svc/update/?accesskey=local'
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at EPiServer.Search.Internal.RequestHandler.MakeHttpRequest(String url, String method, IndexingServiceReference indexingServiceReference, Stream postData, Action`1 responseStreamHandler)
+   at EPiServer.Search.Internal.RequestHandler.SendRequest(SyndicationFeed feed, String namedIndexingService)
+2018-04-11 22:18:33,139 [27] ERROR EPiServer.Search.Internal.RequestQueueHandler: Send batch for named index 'serviceName' failed. Items are left in queue.

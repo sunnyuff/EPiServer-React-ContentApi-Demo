@@ -1,0 +1,34 @@
+﻿<?xml version="1.0"?>
+<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+  <configSections xdt:Transform="InsertBefore(/configuration/*[1])" />
+  <configSections xdt:Locator="XPath(/configuration/configSections[last()])">
+    <section name="episerver.search" type="EPiServer.Search.Configuration.SearchSection, EPiServer.Search.Cms" xdt:Transform="SetAttributes(type)" xdt:Locator="Match(name)"/>
+    <section name="episerver.search" type="EPiServer.Search.Configuration.SearchSection, EPiServer.Search.Cms" xdt:Transform="InsertIfMissing" xdt:Locator="Match(name)"/>
+  </configSections>
+  <configSections xdt:Transform="RemoveAll" xdt:Locator="Condition(count(*)=0)" />
+  <episerver.search active="true" xdt:Transform="InsertIfMissing">
+    <namedIndexingServices defaultService="serviceName">
+      <services>
+        <add name="serviceName" baseUri="Please insert the indexing search service endpoint here if the episerver.search is active. If local service is used pattern is http://sitehost/IndexingService/IndexingService.svc" accessKey="local" />
+      </services>
+    </namedIndexingServices>
+    <searchResultFilter defaultInclude="true">
+      <providers />
+    </searchResultFilter>
+  </episerver.search>
+  <episerver.shell>
+    <protectedModules xdt:Transform="InsertIfMissing">
+      <add name="EPiServer.Search.Cms" xdt:Transform="InsertIfMissing" xdt:Locator="Match(name)" />
+    </protectedModules>
+  </episerver.shell>
+  <system.serviceModel xdt:Transform="InsertIfMissing">
+    <serviceHostingEnvironment  multipleSiteBindingsEnabled="true" xdt:Transform="InsertIfMissing"/>
+  </system.serviceModel>
+  <system.web>
+    <pages>
+      <controls xdt:Transform="InsertIfMissing">
+        <add tagPrefix="EPiServer" namespace="EPiServer.Web.WebControls" assembly="EPiServer.Search.Cms" xdt:Transform="InsertIfMissing" xdt:Locator="Match(assembly)"/>
+      </controls>
+    </pages>
+  </system.web>
+</configuration>

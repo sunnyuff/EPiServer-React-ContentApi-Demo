@@ -1,0 +1,844 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EPiServer.Find</name>
+    </assembly>
+    <members>
+        <member name="T:EPiServer.Find.Api.ICommands">
+            <summary>
+            The Find commands interface which exposes Find commands.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Find.Api.ICommands.ServerUrl">
+            <summary>
+            The server url.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Find.Api.ICommands.Cache">
+            <summary>
+            The cache.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Find.Api.ICommands.Bulk(System.Collections.Generic.IEnumerable{EPiServer.Find.Api.BulkAction})">
+            <summary>
+            The bulk of commands that performs multiple index/delete actions.
+            </summary>
+            <param name="actions">The bulk of actions.</param>
+        </member>
+        <member name="M:EPiServer.Find.Api.ICommands.Count(EPiServer.Find.Api.SearchRequestBody)">
+            <summary>
+            The count command that executes a query and gets the number of matches for that query.
+            </summary>
+            <param name="searchRequestBody">The search request body.</param>
+        </member>
+        <member name="M:EPiServer.Find.Api.ICommands.Delete(System.String,System.String,System.String)">
+            <summary>
+            The delete command that deletes documents.
+            </summary>
+            <param name="index">The index.</param>
+            <param name="type">The document type.</param>
+            <param name="id">The document id.</param>
+        </member>
+        <member name="M:EPiServer.Find.Api.ICommands.Get``1(System.String,System.String,System.String)">
+            <summary>
+            The get command that gets a single document.
+            </summary>
+            <typeparam name="TResult">The type of result.</typeparam>
+            <param name="index">The index.</param>
+            <param name="type">The document type.</param>
+            <param name="id">The document id.</param>
+        </member>
+        <member name="M:EPiServer.Find.Api.ICommands.Index(System.String,System.String,System.Object)">
+            <summary>
+            The index command that adds or updates a document into a specific index, making it searchable.
+            </summary>
+            <param name="index">The index.</param>
+            <param name="type">The document type.</param>
+            <param name="document">The document.</param>
+        </member>
+        <member name="M:EPiServer.Find.Api.ICommands.PutMapping(EPiServer.Find.Api.Mapping.TypeMapping)">
+            <summary>
+            The put mapping command that adds a new document type mapping to the index.
+            </summary>
+            <param name="typeMapping">The type mapping.</param>
+        </member>
+        <member name="M:EPiServer.Find.Api.ICommands.CreateIndex(System.String)">
+            <summary>
+            The create index command that creates a new index. 
+            </summary>
+            <param name="indexName">The index name.</param>
+        </member>
+        <member name="M:EPiServer.Find.Api.ICommands.CreateIndex(System.String,EPiServer.Find.Api.CreateIndexBody)">
+            <summary>
+            The create index command that creates a new index. 
+            </summary>
+            <param name="indexName">The index name.</param>
+            <param name="requestBody">The request body.</param>
+        </member>
+        <member name="M:EPiServer.Find.Api.ICommands.DeleteIndex(System.String)">
+            <summary>
+            The delete index command that deletes an existing index.
+            </summary>
+            <param name="indexName">The index name.</param>
+        </member>
+        <member name="M:EPiServer.Find.Api.ICommands.DeleteByQuery">
+            <summary>
+            The delete command that deletes every documents that match a query.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Find.Api.ICommands.Search``1">
+            <summary>
+            The search command that executes a search query and returns search hits that match the query.
+            </summary>
+            <typeparam name="TResult">The type of result.</typeparam>
+        </member>
+        <member name="M:EPiServer.Find.Api.ICommands.Update``1(EPiServer.Find.Api.Ids.IndexName,EPiServer.Find.Api.Ids.TypeName,EPiServer.Find.Api.Ids.DocumentId)">
+            <summary>
+            The update command that updates a document.
+            </summary>
+            <typeparam name="TResult">The type of result.</typeparam>
+            <param name="index">The index.</param>
+            <param name="type">The document type.</param>
+            <param name="id">The document id.</param>
+        </member>
+        <member name="M:EPiServer.Find.Api.ICommands.MultiGet``1(EPiServer.Find.Api.Ids.IndexName,System.Collections.Generic.IEnumerable{EPiServer.Find.Api.IdAndType})">
+            <summary>
+            The multi get command get command that gets multiple documents.
+            </summary>
+            <typeparam name="TSource">The source type.</typeparam>
+            <param name="indexName">The index name.</param>
+            <param name="idAndTypes">The list of ids and types.</param>
+        </member>
+        <member name="M:EPiServer.Find.Api.ICommands.MultiSearch``1">
+            <summary>
+            The multi search command that executes several search queries.
+            </summary>
+            <typeparam name="TResult">The type of result.</typeparam>
+        </member>
+        <member name="M:EPiServer.Find.Api.BulkCommand.Execute(System.Collections.Generic.List{EPiServer.Find.Api.BulkCommand.SerializationFailure}@)">
+            <summary>
+            Execute the actions if all actions can be serialized. Otherwise the first action that
+            could not be serialized will be appended to the serializationFailures list.
+            </summary>
+            <param name="serializationFailures">A list of items that could not be serialized.
+            This list should be empty for the initial call to this function.</param>
+            <returns>If all actions could be serialized this will return the result wrapped in an ExecuteResult
+            with Execute.Done = true and the result in Execute.Result.
+            Otherwise it will return Execute.Done = false with Execute.Result = null. And in that case, the action
+            that could not be initialized will be removed from this.actions and a failure will be appended to serializationFailures.
+            In that case this function should be executed again.
+            executed again.</returns>
+        </member>
+        <member name="T:EPiServer.Find.Api.Commands">
+            <summary>
+            The Find commands which exposes Find commands.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Find.Api.Commands.ServerUrl">
+            <summary>
+            The server url.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Find.Api.Commands.Cache">
+            <summary>
+            The cache.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Find.Api.Commands.#ctor(System.String,EPiServer.Find.Connection.IJsonRequestFactory,System.Func{Newtonsoft.Json.JsonSerializer},EPiServer.Find.Connection.ICache)">
+            <summary>
+            Initializes a new instance of the <see cref="T:EPiServer.Find.Api.Commands"/> class.
+            </summary>
+            <param name="serverUrl">The server url.</param>
+            <param name="jsonRequestFactory">The json request factory.</param>
+            <param name="serializerFactoryMethod">The serializer factory method.</param>
+            <param name="cache">The cache.</param>
+        </member>
+        <member name="M:EPiServer.Find.Api.Commands.Bulk(System.Collections.Generic.IEnumerable{EPiServer.Find.Api.BulkAction})">
+            <summary>
+            The bulk of commands that performs multiple index/delete actions.
+            </summary>
+            <param name="actions">The bulk of actions.</param>
+        </member>
+        <member name="M:EPiServer.Find.Api.Commands.Count(EPiServer.Find.Api.SearchRequestBody)">
+            <summary>
+            The count command that executes a query and gets the number of matches for that query.
+            </summary>
+            <param name="searchRequestBody">The search request body.</param>
+        </member>
+        <member name="M:EPiServer.Find.Api.Commands.Delete(System.String,System.String,System.String)">
+            <summary>
+            The delete command that deletes documents.
+            </summary>
+            <param name="index">The index.</param>
+            <param name="type">The document type.</param>
+            <param name="id">The document id.</param>
+        </member>
+        <member name="M:EPiServer.Find.Api.Commands.Get``1(System.String,System.String,System.String)">
+            <summary>
+            The get command that gets a single document.
+            </summary>
+            <typeparam name="TResult">The type of result.</typeparam>
+            <param name="index">The index.</param>
+            <param name="type">The document type.</param>
+            <param name="id">The document id.</param>
+        </member>
+        <member name="M:EPiServer.Find.Api.Commands.Update``1(EPiServer.Find.Api.Ids.IndexName,EPiServer.Find.Api.Ids.TypeName,EPiServer.Find.Api.Ids.DocumentId)">
+            <summary>
+            The update command that updates a document.
+            </summary>
+            <typeparam name="TResult">The type of result.</typeparam>
+            <param name="index">The index.</param>
+            <param name="type">The document type.</param>
+            <param name="id">The document id.</param>
+        </member>
+        <member name="M:EPiServer.Find.Api.Commands.MultiGet``1(EPiServer.Find.Api.Ids.IndexName,System.Collections.Generic.IEnumerable{EPiServer.Find.Api.IdAndType})">
+            <summary>
+            The multi get command get command that gets multiple documents.
+            </summary>
+            <typeparam name="TSource">The type of source.</typeparam>
+            <param name="indexName">The index name.</param>
+            <param name="idAndTypes">The list of ids and types.</param>
+        </member>
+        <member name="M:EPiServer.Find.Api.Commands.Index(System.String,System.String,System.Object)">
+            <summary>
+            The index command that adds or updates a document into a specific index, making it searchable.
+            </summary>
+            <param name="index">The index.</param>
+            <param name="type">The document type.</param>
+            <param name="document">The document.</param>
+        </member>
+        <member name="M:EPiServer.Find.Api.Commands.PutMapping(EPiServer.Find.Api.Mapping.TypeMapping)">
+            <summary>
+            The put mapping command that adds a new document type mapping to the index.
+            </summary>
+            <param name="typeMapping">The type mapping.</param>
+        </member>
+        <member name="M:EPiServer.Find.Api.Commands.CreateIndex(System.String)">
+            <summary>
+            The create index command that creates a new index. 
+            </summary>
+            <param name="indexName">The index name.</param>
+        </member>
+        <member name="M:EPiServer.Find.Api.Commands.CreateIndex(System.String,EPiServer.Find.Api.CreateIndexBody)">
+            <summary>
+            The create index command that creates a new index. 
+            </summary>
+            <param name="indexName">The index name.</param>
+            <param name="requestBody">The request body.</param>
+        </member>
+        <member name="M:EPiServer.Find.Api.Commands.DeleteIndex(System.String)">
+            <summary>
+            The delete index command that deletes an existing index.
+            </summary>
+            <param name="indexName">The index name.</param>
+        </member>
+        <member name="M:EPiServer.Find.Api.Commands.IndicesExists(System.String)">
+            <summary>
+            The indices exists command that is used to check if the index exists or not.
+            </summary>
+            <param name="indexName">The index name.</param>
+        </member>
+        <member name="M:EPiServer.Find.Api.Commands.Search``1">
+            <summary>
+            The search command that executes a search query and returns search hits that match the query.
+            </summary>
+            <typeparam name="TResult">The type of result.</typeparam>
+        </member>
+        <member name="M:EPiServer.Find.Api.Commands.DeleteByQuery">
+            <summary>
+            The delete command that deletes every document that match a query.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Find.Api.Commands.MultiSearch``1">
+            <summary>
+            The multi search command that executes several search queries.
+            </summary>
+            <typeparam name="TResult">The type of result.</typeparam>
+        </member>
+        <member name="M:EPiServer.Find.Helpers.Linq.ExpressionExtensions.Find``1(System.Linq.Expressions.Expression,System.Func{``0,System.Boolean})">
+            <summary>
+            Returns a list of <typeparamref name="TExpression"/> instances
+            that matches the <paramref name="predicate"/>.
+            </summary>
+            <typeparam name="TExpression">The type of <see cref="T:System.Linq.Expressions.Expression"/>
+            to search for.</typeparam>
+            <param name="expression">The <see cref="T:System.Linq.Expressions.Expression"/> that represents the sub tree for which to start searching.</param>
+            <param name="predicate">The <see cref="T:System.Func`2"/> used to filter the result</param>
+            <returns>A list of <see cref="T:System.Linq.Expressions.Expression"/> instances that matches the given predicate.</returns>
+        </member>
+        <member name="M:EPiServer.Find.Helpers.Linq.ExpressionExtensions.Replace``1(System.Linq.Expressions.Expression,System.Func{``0,System.Boolean},System.Func{``0,System.Linq.Expressions.Expression})">
+            <summary>
+            Searches for expressions using the given <paramref name="predicate"/> and replaces matches with
+            the result from the <paramref name="replaceWith"/> delegate.
+            </summary>
+            <typeparam name="TExpression">The type of <see cref="T:System.Linq.Expressions.Expression"/> to search for.</typeparam>
+            <param name="expression">The <see cref="T:System.Linq.Expressions.Expression"/> that represents the sub tree
+            for which to start searching.</param>
+            <param name="predicate">The <see cref="T:System.Func`2"/> used to filter the result</param>
+            <param name="replaceWith">The <see cref="T:System.Func`2"/> used to specify the replacement expression.</param>
+            <returns>The modified <see cref="T:System.Linq.Expressions.Expression"/> tree.</returns>
+        </member>
+        <member name="T:EPiServer.Find.Helpers.Linq.ExpressionFinder`1">
+            <summary>
+            A class used to search for <see cref="T:System.Linq.Expressions.Expression"/> instances. 
+            </summary>
+            <typeparam name="TExpression">The type of <see cref="T:System.Linq.Expressions.Expression"/> to search for.</typeparam>
+        </member>
+        <member name="M:EPiServer.Find.Helpers.Linq.ExpressionFinder`1.Find(System.Linq.Expressions.Expression,System.Func{`0,System.Boolean})">
+            <summary>
+            Returns a list of <typeparamref name="TExpression"/> instances that matches the <paramref name="predicate"/>.
+            </summary>
+            <param name="expression">The <see cref="T:System.Linq.Expressions.Expression"/> that represents the sub tree for which to start searching.</param>
+            <param name="predicate">The <see cref="T:System.Func`2"/> used to filter the result</param>
+            <returns>A list of <see cref="T:System.Linq.Expressions.Expression"/> instances that matches the given predicate.</returns>
+        </member>
+        <member name="M:EPiServer.Find.Helpers.Linq.ExpressionFinder`1.Visit(System.Linq.Expressions.Expression)">
+            <summary>
+            Visits each node of the <see cref="T:System.Linq.Expressions.Expression"/> tree checks 
+            if the current expression matches the predicate.         
+            </summary>
+            <param name="expression">The <see cref="T:System.Linq.Expressions.Expression"/> currently being visited.</param>
+            <returns><see cref="T:System.Linq.Expressions.Expression"/></returns>
+        </member>
+        <member name="T:EPiServer.Find.Helpers.Linq.ExpressionReplacer`1">
+            <summary>
+            A class that is capable of doing a find and replace in an <see cref="T:System.Linq.Expressions.Expression"/> tree.
+            </summary>
+            <typeparam name="TExpression">The type of <see cref="T:System.Linq.Expressions.Expression"/> to find and replace.</typeparam>
+        </member>
+        <member name="M:EPiServer.Find.Helpers.Linq.ExpressionReplacer`1.Replace(System.Linq.Expressions.Expression,System.Func{`0,System.Boolean},System.Func{`0,System.Linq.Expressions.Expression})">
+            <summary>
+            Searches for expressions using the given <paramref name="predicate"/> and 
+            replaces matches with the result from the <paramref name="replaceWith"/> delegate.          
+            </summary>
+            <param name="expression">The <see cref="T:System.Linq.Expressions.Expression"/> that 
+            represents the sub tree for which to start searching.</param>
+            <param name="predicate">The <see cref="T:System.Func`2"/> used to filter the result</param>
+            <param name="replaceWith">The <see cref="T:System.Func`2"/> 
+            used to specify the replacement expression.</param>
+            <returns>The modified <see cref="T:System.Linq.Expressions.Expression"/> tree.</returns>
+        </member>
+        <member name="M:EPiServer.Find.Helpers.Linq.ExpressionReplacer`1.Visit(System.Linq.Expressions.Expression)">
+            <summary>
+            Visits each node of the <see cref="T:System.Linq.Expressions.Expression"/> tree checks 
+            if the current expression matches the predicate. If a match is found 
+            the expression will be replaced.        
+            </summary>
+            <param name="expression">The <see cref="T:System.Linq.Expressions.Expression"/> currently being visited.</param>
+            <returns><see cref="T:System.Linq.Expressions.Expression"/></returns>        
+        </member>
+        <member name="M:EPiServer.Find.Helpers.Text.StringExtensions.StripHtml(System.String)">
+            <summary>
+            Strips html tags from text and decodes any encoded characters.
+            This ensures that text is indexed the same way that a user reads it
+            in a browser, and enhances search over these words.
+            </summary>
+            <param name="htmlText">Text from which to strip html tags and decode encoded characters</param>
+            <returns>Decoded text free from html tags</returns>
+        </member>
+        <member name="T:EPiServer.Find.Json.Base64EncoderStream">
+            <summary>
+            Class that wraps a stream and presents it in a base64 encoded form.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Find.Json.IBookmarkableWriter.InsertBookmark(System.Func{System.IO.Stream},System.Int64)">
+            <summary>
+            Inserts a bookmark in the current location of the stream.
+            </summary>
+            <param name="streamDelegate"></param>
+            <param name="length">The length (in bytes) of the stream.</param>
+            <returns>Returns <c>true</c> if the bookmark was successfully inserted, <c>false</c> otherwise.</returns>
+        </member>
+        <member name="T:EPiServer.Find.Json.ICustomContractIgnored">
+            <summary>
+            Marker interface used by Find's JSON contract resolver. A class implementing this interface will bypass the standard JSON serialization handling in Find.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Find.Json.Serializer.ByteCountingTextWriter.CountChar(System.Char)">
+            <summary>
+            In order to count amount of written bytes properly, 
+            we need to take into account surrogates.
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="M:EPiServer.Find.QueryStringSearchExtensions.InAllField``2(EPiServer.Find.IQueriedSearch{``0,``1})">
+            <summary>
+            Adds the _all field to the list of fields to search in.
+            </summary>
+            <remarks>
+            By default a free text query is executed against a special field named '_all' which 
+            contains all indexed values for a document.
+            If the free text query has been instructed to search in specific fields using for 
+            isntance the InField method the query will no longer be executed against the _all field.
+            This method adds the _all field to the list of fields to search in.
+            </remarks>
+        </member>
+        <member name="M:EPiServer.Find.QueryStringSearchExtensions.WithAndAsDefaultOperator``1(EPiServer.Find.IQueriedSearch{``0,EPiServer.Find.Api.Querying.Queries.QueryStringQuery})">
+            <summary>
+            Modifies how a free text query will be parsed to require that each individual word be present
+            in the matched text.
+            </summary>
+            <remarks>
+            By default a free text query for 'EPiServer Find' will be parsed as 'EPiServer' AND/OR 'Find'.
+            After invoking this method the free text query will instead be parsed as 'EPiServer' AND 'Find.
+            </remarks>
+        </member>
+        <member name="M:EPiServer.Find.QueryStringSearchExtensions.InStandardFields``1(EPiServer.Find.IQueriedSearch{EPiServer.Find.UnifiedSearch.ISearchContent,``0})">
+            <summary>
+            Adds the SearchTitle, SearchText, SearchSummary and SearchAttachments fields to the list 
+            of fields to search in.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Find.QueryStringSearchExtensions.UsingUnifiedWeights``1(EPiServer.Find.IQueriedSearch{EPiServer.Find.UnifiedSearch.ISearchContent,``0})">
+            <summary>
+            If the client has an admin index, adds the fields from the backend otherwise adds the SearchTitle, SearchText, SearchSummary and SearchAttachments fields to the list 
+            of fields to search in.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Find.QueryStringSearchExtensions.UsingUnifiedWeights``1(EPiServer.Find.IQueriedSearch{EPiServer.Find.UnifiedSearch.ISearchContent,``0},EPiServer.Find.Api.UnifiedWeightsValues)">
+            <summary>
+            If the client has an admin index, adds the fields from the backend otherwise adds the SearchTitle, SearchText, SearchSummary and SearchAttachments fields to the list 
+            of fields to search in.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Find.QueryStringSearchExtensions.UsingSynonyms``1(EPiServer.Find.IQueriedSearch{``0})">
+            <summary>
+            If the client has an admin index, adds synonym analyzer to query.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Find.UnifiedSearch.HitProjection.SpecTitleProjection">
+            <summary>
+            Title projection that takes a HitSpecification parameter.
+            Used to change the behaviour of e.g. encoding.
+            By default it uses TitleProjection if set, otherwise it encodes the title.
+            To override the encoding behaviour, simply set TitleProjection
+            </summary>
+        </member>
+        <member name="P:EPiServer.Find.UnifiedSearch.HitSpecification.EncodeTitle">
+            <summary>
+            Toggle the ability to encode the title.
+            Default behaviour is True: encoding enabled.
+            Set to False to disable encoding.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Find.UnifiedSearch.HitSpecification.EncodeExcerpt">
+            <summary>
+            Toggle the ability to encode the excerpt.
+            Default behaviour is True: encoding enabled.
+            Set to False to disable encoding.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Find.UnifiedSearch.HitOriginalTypeProjectionProcessor">
+            <summary>
+            Adds $type to the field list to the search request body if the projected to type is assignable to Hit.
+            Also fetches the $type field from the response document and if such a type exists rebuilds the projection
+            to set the OriginalObjectType property to the type and, if the projected to type is exactly Hit, to create an
+            instance of the generic Hit type with the type as type parameter.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Find.QueryEscaping.ValidateTokens(System.String[])">
+            <summary>
+            Simplified analizys for valid twoArgOperators usage: foo AND bar, foo OR bar, NOT foo
+            </summary>
+            <param name="tokens"></param>
+            <returns>True if all tokens has valid operators usage, false otherwise</returns>
+        </member>
+        <member name="M:EPiServer.Find.QueryEscaping.JoinArgumentTokens(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Join non-operator tokens in a single collection element
+            </summary>
+            <param name="tokens"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EPiServer.Find.IClient">
+            <summary>
+            The Find client interface which exposes Find endpoints.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Find.IClient.CustomizeSerializer">
+            <summary>
+            The custom serializer.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Find.IClient.Conventions">
+            <summary>
+            The client conventions.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Find.IClient.ServiceUrl">
+            <summary>
+            The service url.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Find.IClient.DefaultIndex">
+            <summary>
+            The default index name to use when there is no other index name in the request.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Find.IClient.Settings">
+            <summary>
+            The settings.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Find.IClient.Update``1(EPiServer.Find.Api.Ids.DocumentId)">
+            <summary>
+            Updates an indexed document.
+            </summary>
+            <typeparam name="TSource">The source type.</typeparam>
+            <param name="id">The document id.</param>
+        </member>
+        <member name="M:EPiServer.Find.IClient.Update``1(EPiServer.Find.Api.Ids.DocumentId,EPiServer.Find.Api.UpdateRequestBody,System.Action{EPiServer.Find.Api.UpdateCommand})">
+            <summary>
+            Updates an indexed document.
+            </summary>
+            <typeparam name="TSource">The source type.</typeparam>
+            <param name="id">The document id.</param>
+            <param name="requestBody">The request body.</param>
+            <param name="commandAction">The action.</param>
+        </member>
+        <member name="M:EPiServer.Find.IClient.Index(System.Object)">
+            <summary>
+            Indexes a document.
+            </summary>
+            <param name="objectToIndex">The object to index.</param>
+        </member>
+        <member name="M:EPiServer.Find.IClient.Index(System.Object,System.Action{EPiServer.Find.Api.IndexCommand})">
+            <summary>
+            Indexes a document.
+            </summary>
+            <param name="objectToIndex">The object to index.</param>
+            <param name="commandAction">The action.</param>
+        </member>
+        <member name="M:EPiServer.Find.IClient.Index(System.Collections.IEnumerable)">
+            <summary>
+            Indexes a bulk of documents.
+            </summary>
+            <param name="objectsToIndex">The list of objects to index.</param>
+        </member>
+        <member name="M:EPiServer.Find.IClient.Get``1(EPiServer.Find.Api.Ids.DocumentId)">
+            <summary>
+            Gets an indexed document.
+            </summary>
+            <typeparam name="TSource">The source type.</typeparam>
+            <param name="id">The document id.</param>
+        </member>
+        <member name="M:EPiServer.Find.IClient.Get``1(EPiServer.Find.Api.Ids.DocumentId,System.Action{EPiServer.Find.Api.GetCommand{``0}})">
+            <summary>
+            Gets an indexed document.
+            </summary>
+            <typeparam name="TSource">The source type.</typeparam>
+            <param name="id">The document id.</param>
+            <param name="commandAction">The action.</param>
+        </member>
+        <member name="M:EPiServer.Find.IClient.GetWithMeta``1(EPiServer.Find.Api.Ids.DocumentId,System.Action{EPiServer.Find.Api.GetCommand{``0}})">
+            <summary>
+            Gets an indexed document by id with specific meta data.
+            </summary>
+            <typeparam name="TSource">The source type.</typeparam>
+            <param name="id">The document id.</param>
+            <param name="commandAction">The action.</param>
+        </member>
+        <member name="M:EPiServer.Find.IClient.Get``1(System.Collections.Generic.IEnumerable{EPiServer.Find.Api.Ids.DocumentId})">
+            <summary>
+            Gets documents by list of ids.
+            </summary>
+            <typeparam name="TSource">The source type.</typeparam>
+            <param name="ids">The list of ids.</param>
+        </member>
+        <member name="M:EPiServer.Find.IClient.Delete``1(EPiServer.Find.Api.Ids.DocumentId)">
+            <summary>
+            Deletes an indexed document.
+            </summary>
+            <typeparam name="T">The source type.</typeparam>
+            <param name="id">The document id.</param>
+        </member>
+        <member name="M:EPiServer.Find.IClient.Delete``1(EPiServer.Find.Api.Ids.DocumentId,System.Action{EPiServer.Find.Api.DeleteCommand})">
+            <summary>
+            Deletes an indexed document.
+            </summary>
+            <typeparam name="T">The source type.</typeparam>
+            <param name="id">The document id.</param>
+            <param name="commandAction">The action.</param>
+        </member>
+        <member name="M:EPiServer.Find.IClient.Delete(System.Type,EPiServer.Find.Api.Ids.DocumentId,System.Action{EPiServer.Find.Api.DeleteCommand})">
+            <summary>
+            Deletes an indexed document.
+            </summary>
+            <param name="type">The document type.</param>
+            <param name="id">The document id.</param>
+            <param name="commandAction">The action.</param>
+        </member>
+        <member name="M:EPiServer.Find.IClient.DeleteByQuery(EPiServer.Find.Api.Querying.IQuery,System.Action{EPiServer.Find.Api.DeleteByQueryCommand})">
+            <summary>
+            Deletes indexed documents that match the query.
+            </summary>
+            <param name="query">The query.</param>
+            <param name="commandAction">The action.</param>
+        </member>
+        <member name="M:EPiServer.Find.IClient.Search``1">
+            <summary>
+            Searches indexed documents.
+            </summary>
+            <typeparam name="TSource">The source type.</typeparam>
+        </member>
+        <member name="M:EPiServer.Find.IClient.Search``1(EPiServer.Find.Language)">
+            <summary>
+            Searches indexed documents.
+            </summary>
+            <typeparam name="TSource">The source type.</typeparam>
+            <param name="language">The language.</param>
+        </member>
+        <member name="M:EPiServer.Find.IClient.Search``1(EPiServer.Find.Api.SearchRequestBody,System.Action{EPiServer.Find.Api.SearchCommand})">
+            <summary>
+            Searches indexed documents.
+            </summary>
+            <typeparam name="TResult">The type of result.</typeparam>
+            <param name="requestBody">The request body.</param>
+            <param name="commandAction">The action.</param>
+        </member>
+        <member name="M:EPiServer.Find.IClient.SearchForType``1(EPiServer.Find.Api.SearchRequestBody,System.Action{EPiServer.Find.Api.SearchCommand})">
+            <summary>
+            Searches indexed documents with specific type.
+            </summary>
+            <typeparam name="TSource">The source type.</typeparam>
+            <param name="requestBody">The request body.</param>
+            <param name="commandAction">The action.</param>
+        </member>
+        <member name="M:EPiServer.Find.IClient.MultiSearch``1">
+            <summary>
+            Searches indexed documents with multiple queries.
+            </summary>
+            <typeparam name="TSource">The source type.</typeparam>
+        </member>
+        <member name="M:EPiServer.Find.IClient.MultiSearch``1(System.Collections.Generic.IEnumerable{System.Tuple{EPiServer.Find.Api.SearchRequestBody,System.Action{EPiServer.Find.Api.SearchCommand}}},System.Action{EPiServer.Find.Api.MultiSearchCommand})">
+            <summary>
+            Searches indexed documents with multiple queries.
+            </summary>
+            <typeparam name="TResult">The type of result.</typeparam>
+            <param name="searchRequests">The search requests.</param>
+            <param name="commandAction">The action.</param>
+        </member>
+        <member name="M:EPiServer.Find.IClient.GetServiceUrlWithDefaultIndex">
+            <summary>
+            Gets service url with default index.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Find.IClient.GetSettings">
+            <summary>
+            Gets settings.
+            </summary>
+        </member>
+        <member name="T:EPiServer.Find.Client">
+            <summary>
+            The Find client which exposes fully mapped Find endpoints.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Find.Client.Conventions">
+            <summary>
+            The client conventions.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Find.Client.ServiceUrl">
+            <summary>
+            The service url.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Find.Client.DefaultIndex">
+            <summary>
+            The default index name to use when there is no other index name in the request.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Find.Client.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:EPiServer.Find.Api.Commands"/> class.
+            </summary>
+            <param name="serviceUrl">The service url.</param>
+            <param name="defaultIndex">The default index name.</param>
+        </member>
+        <member name="M:EPiServer.Find.Client.#ctor(System.String,System.String,System.Nullable{System.Int32})">
+            <summary>
+            Initializes a new instance of the <see cref="T:EPiServer.Find.Api.Commands"/> class.
+            </summary>
+            <param name="serviceUrl">The service url.</param>
+            <param name="defaultIndex">The default index name.</param>
+            <param name="defaultRequestTimeout">The request timeout.</param>
+        </member>
+        <member name="M:EPiServer.Find.Client.#ctor(EPiServer.Find.Api.ICommands,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:EPiServer.Find.Api.Commands"/> class.
+            </summary>
+            <param name="commands">The commands.</param>
+            <param name="defaultIndex">The default index name.</param>
+        </member>
+        <member name="M:EPiServer.Find.Client.CreateFromConfig">
+            <summary>
+            Creates client from configuration.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Find.Client.CreateFromConfig(System.Boolean)">
+            <summary>
+            Creates client from configuration.
+            </summary>
+            <param name="bypassLicenseRestriction">The bypass license restriction.</param>
+            <returns></returns>
+        </member>
+        <member name="P:EPiServer.Find.Client.CustomizeSerializer">
+            <summary>
+            The custom serializer.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Find.Client.Index(System.Collections.IEnumerable)">
+            <summary>
+            Indexes bulk of documents.
+            </summary>
+            <param name="objectsToIndex">The list of objects to index.</param>
+        </member>
+        <member name="M:EPiServer.Find.Client.Index(System.Object)">
+            <summary>
+            Indexes an indexed document.
+            </summary>
+            <param name="objectToIndex">The object to index.</param>
+        </member>
+        <member name="M:EPiServer.Find.Client.Index(System.Object,System.Action{EPiServer.Find.Api.IndexCommand})">
+            <summary>
+            Indexes an indexed document.
+            </summary>
+            <param name="objectToIndex">The object to index.</param>
+            <param name="commandAction">The action.</param>
+        </member>
+        <member name="M:EPiServer.Find.Client.Get``1(EPiServer.Find.Api.Ids.DocumentId)">
+            <summary>
+            Gets an indexed document.
+            </summary>
+            <typeparam name="TSource">The source type.</typeparam>
+            <param name="id">The document id.</param>
+        </member>
+        <member name="M:EPiServer.Find.Client.Get``1(EPiServer.Find.Api.Ids.DocumentId,System.Action{EPiServer.Find.Api.GetCommand{``0}})">
+            <summary>
+            Gets an indexed document.
+            </summary>
+            <typeparam name="TSource">The source type.</typeparam>
+            <param name="id">The document id.</param>
+            <param name="commandAction">The action.</param>
+        </member>
+        <member name="M:EPiServer.Find.Client.GetWithMeta``1(EPiServer.Find.Api.Ids.DocumentId,System.Action{EPiServer.Find.Api.GetCommand{``0}})">
+            <summary>
+            Gets an indexed document by id with specific meta data.
+            </summary>
+            <typeparam name="TSource">The source type.</typeparam>
+            <param name="id">The document id.</param>
+            <param name="commandAction">The action.</param>
+        </member>
+        <member name="M:EPiServer.Find.Client.Delete``1(EPiServer.Find.Api.Ids.DocumentId)">
+            <summary>
+            Deletes an indexed document.
+            </summary>
+            <typeparam name="T">The source type.</typeparam>
+            <param name="id">The document id.</param>
+        </member>
+        <member name="M:EPiServer.Find.Client.Delete``1(EPiServer.Find.Api.Ids.DocumentId,System.Action{EPiServer.Find.Api.DeleteCommand})">
+            <summary>
+            Deletes an indexed document.
+            </summary>
+            <typeparam name="T">The source type.</typeparam>
+            <param name="id">The document id.</param>
+            <param name="commandAction">The action.</param>
+        </member>
+        <member name="M:EPiServer.Find.Client.Delete(System.Type,EPiServer.Find.Api.Ids.DocumentId,System.Action{EPiServer.Find.Api.DeleteCommand})">
+            <summary>
+            Deletes an indexed document.
+            </summary>
+            <param name="type">The document type.</param>
+            <param name="id">The document id.</param>
+            <param name="commandAction">The action.</param>
+        </member>
+        <member name="M:EPiServer.Find.Client.DeleteByQuery(EPiServer.Find.Api.Querying.IQuery,System.Action{EPiServer.Find.Api.DeleteByQueryCommand})">
+            <summary>
+            Deletes indexed documents that match the query.
+            </summary>
+            <param name="query">The query.</param>
+            <param name="commandAction">The action.</param>
+        </member>
+        <member name="M:EPiServer.Find.Client.Update``1(EPiServer.Find.Api.Ids.DocumentId)">
+            <summary>
+            Updates an indexed document.
+            </summary>
+            <typeparam name="TSource">The source type.</typeparam>
+            <param name="id">The document id.</param>
+        </member>
+        <member name="M:EPiServer.Find.Client.Update``1(EPiServer.Find.Api.Ids.DocumentId,EPiServer.Find.Api.UpdateRequestBody,System.Action{EPiServer.Find.Api.UpdateCommand})">
+            <summary>
+            Updates an indexed document.
+            </summary>
+            <typeparam name="TSource">The source type.</typeparam>
+            <param name="id">The document id.</param>
+            <param name="requestBody">The request body.</param>
+            <param name="commandAction">The action.</param>
+        </member>
+        <member name="M:EPiServer.Find.Client.Search``1">
+            <summary>
+            Searches indexed documents.
+            </summary>
+            <typeparam name="TSource">The source type.</typeparam>
+        </member>
+        <member name="M:EPiServer.Find.Client.Search``1(EPiServer.Find.Language)">
+            <summary>
+            Searches indexed documents.
+            </summary>
+            <typeparam name="TSource">The source type.</typeparam>
+            <param name="language">The language.</param>
+        </member>
+        <member name="M:EPiServer.Find.Client.Search``1(EPiServer.Find.Api.SearchRequestBody,System.Action{EPiServer.Find.Api.SearchCommand})">
+            <summary>
+            Searches indexed documents.
+            </summary>
+            <typeparam name="TResult">The type of result.</typeparam>
+            <param name="requestBody">The request body.</param>
+            <param name="commandAction">The action.</param>
+        </member>
+        <member name="M:EPiServer.Find.Client.SearchForType``1(EPiServer.Find.Api.SearchRequestBody,System.Action{EPiServer.Find.Api.SearchCommand})">
+            <summary>
+            Searches indexed documents with specific type.
+            </summary>
+            <typeparam name="TSource">The source type.</typeparam>
+            <param name="requestBody">The request body.</param>
+            <param name="commandAction">The action.</param>
+        </member>
+        <member name="M:EPiServer.Find.Client.Get``1(System.Collections.Generic.IEnumerable{EPiServer.Find.Api.Ids.DocumentId})">
+            <summary>
+            Gets documents by list of ids.
+            </summary>
+            <typeparam name="TSource">The source type.</typeparam>
+            <param name="ids">The list of ids.</param>
+        </member>
+        <member name="M:EPiServer.Find.Client.GetServiceUrlWithDefaultIndex">
+            <summary>
+            Gets service url with default index.
+            </summary>
+        </member>
+        <member name="P:EPiServer.Find.Client.Settings">
+            <summary>
+            The settings.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Find.Client.GetSettings">
+            <summary>
+            Gets settings.
+            </summary>
+        </member>
+        <member name="M:EPiServer.Find.Client.MultiSearch``1">
+            <summary>
+            Searches indexed documents with multiple search queries.
+            </summary>
+            <typeparam name="TSource">The source type.</typeparam>
+        </member>
+        <member name="M:EPiServer.Find.Client.MultiSearch``1(System.Collections.Generic.IEnumerable{System.Tuple{EPiServer.Find.Api.SearchRequestBody,System.Action{EPiServer.Find.Api.SearchCommand}}},System.Action{EPiServer.Find.Api.MultiSearchCommand})">
+            <summary>
+            Searches indexed documents with multiple search queries.
+            </summary>
+            <typeparam name="TResult">The type of result.</typeparam>
+            <param name="searchRequests">The search requests.</param>
+            <param name="commandAction">The action.</param>
+        </member>
+    </members>
+</doc>
